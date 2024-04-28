@@ -1,16 +1,16 @@
-# This is a sample Python script.
-
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from PDFReader import PDFReader
+from Settings import SETTINGS
+from logger import logger
 
 
-# Press the green button in the gutter to run the script.
+def main():
+    logger.debug(f"Starting process with SETTINGS: {SETTINGS}")
+    logger.debug(f"Reading PDFs from {SETTINGS.input_path}")
+    pdfs = PDFReader.read_in_folder(SETTINGS.input_path)
+    merged_pdf_path = PDFReader.merge_pdfs(pdfs, SETTINGS.output_path)
+    logger.debug(f"Adding page numbers to {merged_pdf_path}")
+    PDFReader.add_page_numbers(merged_pdf_path, SETTINGS.page_number_format)
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()

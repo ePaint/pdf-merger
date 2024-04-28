@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/pycharm,pycharm+all,flask,python,venv
 # Edit at https://www.toptal.com/developers/gitignore?templates=pycharm,pycharm+all,flask,python,venv
 
+Input/*
+Output/*
+
 vx_piano_sdk/build/
 
 temp
